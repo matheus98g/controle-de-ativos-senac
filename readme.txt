@@ -1,5 +1,5 @@
 resumo
-- controle de ativos da sala de manutenção do SENAC
+- controle de ativos da sala de manutenção/informatica do SENAC
 
 features
 - banco de dados
