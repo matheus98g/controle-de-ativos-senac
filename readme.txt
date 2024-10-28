@@ -6,5 +6,6 @@ features
 - controle de acesso
 - cadastro e alteração de informações de usuarios
 - cadastro e alteração de informações de ativos
-- listar e deletar ativos
-- controle de movimentações de ativos (usuario, operação, onde saiu, onde entrou, motivo, datahora)
+- listar, editar, ativar/inativar ativos
+- pesquisa de ativos
+- controle/historico de movimentações de ativos (usuario, operação, onde saiu, onde entrou, motivo, datahora)
