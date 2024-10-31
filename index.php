@@ -12,10 +12,10 @@
 </head>
 
 <body class="p-4">
-    <header>
+    <header class="bg-primary p-2 d-flex justify-content-center align-items-center">
         <h1>Hello, world!</h1>
     </header>
-    <main class="">
+    <main>
         <div class="d-flex justify-content-center align-items-center mt-4" style="height: 100vh;">
             <button type="button" class="btn btn-primary btn-lg">Iniciar</button>
         </div>
