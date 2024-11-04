@@ -11,16 +11,79 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 
-<body class="p-4">
-    <header class="bg-primary p-2 d-flex justify-content-center align-items-center">
-        <h1>Hello, world!</h1>
-    </header>
-    <main>
-        <div class="d-flex justify-content-center align-items-center mt-4" style="height: 100vh;">
-            <button type="button" class="btn btn-primary btn-lg">Iniciar</button>
+<body>
+    <div class="container pt-4 text-center">
+        <div class="row justify-content-between">
+            <div class="col-md-2 rounded my-2 py-2 bg-primary ">
+                1
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                2
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                3
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                4
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-danger">
+                5
+            </div>
         </div>
+        <div class="row justify-content-between">
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                6
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                7
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-danger">
+                8
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                9
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                10
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-md-2 rounded my-2 py-2 bg-danger">
+                11
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                12
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-danger">
+                13
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                14
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                15
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                16
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                17
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-danger">
+                18
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-danger">
+                19
+            </div>
+            <div class="col-md-2 rounded my-2 py-2 bg-primary">
+                20
+            </div>
+        </div>
+    </div>
 
-    </main>
+
 </body>
 
 </html>
