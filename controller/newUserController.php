@@ -1,9 +1,15 @@
 <?php
 
-$nome = $_POST['nome'];
-$user = $_POST['user'];
-$email = $_POST['email'];
-$turma = $_POST['turma'];
-$password = $_POST['password'];
+include('../model/db.php');
 
-echo $nome;
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$turma = $_POST['turma'];
+
+
+$query = "INSERT INTO usuario (nomeUsuario, emailUsuario, senhaUsuario, turmaUsuario, dataCadastro) VALUES ('$nome', '$email', '$password', '$turma', now());";
+
+$result = mysqli_query($db, $query) or die(false);
+
+echo "$nome <br> $email <br> $password <br> $turma";
