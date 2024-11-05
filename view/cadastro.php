@@ -12,8 +12,8 @@
     <script>
         // Validação das senhas
         function validatePassword() {
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirm_password").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirm_password").value;
 
             // Check se as senhas conferem
             if (password !== confirmPassword) {
@@ -39,10 +39,6 @@
                 <label for="nome" class="form-label">Nome*</label>
                 <input type="text" name="nome" class="form-control" id="nome" placeholder="Seu nome" required>
             </div>
-            <!-- <div class="mb-3">
-                <label for="user" class="form-label">Usuario*</label>
-                <input type="text" name="user" class="form-control" id="user" placeholder="Seu nome" required>
-            </div> -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email*</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="Seu email" required>
