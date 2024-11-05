@@ -4,12 +4,11 @@ include('../model/db.php');
 
 $nome = $_POST['nome'];
 $email = $_POST['email'];
-$password = $_POST['password'];
-$password_hash = password_hash($password, PASSWORD_BCRYPT);
+$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 $turma = $_POST['turma'];
 
 
-$query = "INSERT INTO usuario (nomeUsuario, emailUsuario, senhaUsuario, turmaUsuario, dataCadastro) VALUES ('$nome', '$email', '$password_hash', '$turma', now());";
+$query = "INSERT INTO usuario (nomeUsuario, emailUsuario, senhaUsuario, turmaUsuario, dataCadastro) VALUES ('$nome', '$email', '$password', '$turma', now());";
 
 $result = mysqli_query($db, $query) or die(false);
 
