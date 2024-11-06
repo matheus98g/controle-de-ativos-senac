@@ -10,18 +10,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script>
-        // Validação das senhas
+        // Função para validar a senha
         function validatePassword() {
             let password = document.getElementById("password").value;
             let confirmPassword = document.getElementById("confirm_password").value;
+            let passwordMessage = document.getElementById("password-error-message");
+            let confirmMessage = document.getElementById("error-message");
 
-            // Check se as senhas conferem
+            // Expressão regular para validar a senha (mínimo 8 caracteres, incluindo números, letras maiúsculas, minúsculas e caracteres especiais)
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&,.])[A-Za-z\d@$!%*?&,.]{8,}$/;
+
+            // Verifica se a senha atende aos requisitos
+            if (!passwordRegex.test(password)) {
+                passwordMessage.innerText = "A senha deve ter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais.";
+                document.getElementById("password").classList.add("is-invalid");
+                return false;
+            } else {
+                passwordMessage.innerText = "";
+                document.getElementById("password").classList.remove("is-invalid");
+                document.getElementById("password").classList.add("is-valid");
+            }
+
+            // Verifica se as senhas conferem
             if (password !== confirmPassword) {
-                document.getElementById("error-message").innerText = "Senhas não conferem!";
+                confirmMessage.innerText = "Senhas não conferem!";
                 document.getElementById("confirm_password").classList.add("is-invalid");
                 return false;
             } else {
-                document.getElementById("error-message").innerText = "";
+                confirmMessage.innerText = "";
                 document.getElementById("confirm_password").classList.remove("is-invalid");
                 document.getElementById("confirm_password").classList.add("is-valid");
                 return true;
@@ -50,6 +66,9 @@
             <div class="mb-3">
                 <label for="password" class="form-label">Senha*</label>
                 <input type="password" class="form-control" id="password" placeholder="Informe uma senha" name="password" required>
+                <div id="password-error-message" class="invalid-feedback">
+                    <!-- Mensagem de erro da senha -->
+                </div>
             </div>
 
             <div class="mb-3">
@@ -63,8 +82,6 @@
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
-
-
 
 </body>
 
