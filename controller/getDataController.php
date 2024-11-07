@@ -1,4 +1,5 @@
 <?php
+include('../model/db.php');
 function get_data(
     $db,
     $table,
