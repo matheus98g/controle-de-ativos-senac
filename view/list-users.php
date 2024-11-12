@@ -4,7 +4,7 @@ include('../includes/head.php') //scripts e html principal
 
 <body>
     <?php
-    include('../includes/nav-bar.php')
+    include('../includes/menu.php')
     ?>
     <div class="container">
         <table class="table table-hover mt-4">
