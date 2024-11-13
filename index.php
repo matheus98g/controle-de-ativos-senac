@@ -1,3 +1,3 @@
 <script>
-    window.location.href = './view/list-users.php';
+    window.location.href = './view/login.php';
 </script>

@@ -15,9 +15,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../view/add-user.php">Cadastrar</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../view/edit-user.php">Editar</a>
-                </li>
             </ul>
         </div>
     </nav>

@@ -5,8 +5,8 @@ include('../includes/head.php') //scripts e html principal
 <body class="bg-dark text-white">
 
     <div class="container mt-5">
-        <h2>Criar uma nova conta</h2>
-        <form onsubmit="return validatePassword()" action="../controller/newUserController.php" method="post">
+        <h2>Criar um novo Usuario</h2>
+        <form onsubmit="return validatePassword()" action="../controller/newUserController.php" method="POST">
             <div class="mb-3">
                 <label for="usuario" class="form-label">Usuario*</label>
                 <input type="text" name="usuario" class="form-control" id="usuario" placeholder="Escolha um nome de usuairo" required>

@@ -2,20 +2,20 @@
 
 include('../model/db.php');
 
-$nome = $_POST['nome'];
+$usuario = $_POST['usuario'];
 $email = $_POST['email'];
 $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 $turma = $_POST['turma'];
 
 
 $query = "INSERT INTO usuario (nomeUsuario, emailUsuario, senhaUsuario, turmaUsuario, dataCadastro) 
-          VALUES ('$nome', '$email', '$password', '$turma', now());";
+          VALUES ('$usuario', '$email', '$password', '$turma', now());";
 
 $result = mysqli_query($db, $query) or die(false);
 
 if ($result) {
     echo "<script> alert('Usuario cadastrado com sucesso!');
-    window.location.href = '../view/list_users.php';
+    window.location.href = '../view/list-users.php';
     </script>";
 } else {
     echo "<script> alert('Ocorreu um erro, tente novamente.');
