@@ -14,12 +14,12 @@ if (isset($_POST['id'])) {
     // Verificar se o usuário foi encontrado
     if (!$user) {
         // Se não encontrar, redirecionar
-        echo "<script>alert('Usuário não encontrado'); window.location.href = '../view/list_users.php';</script>";
+        echo "<script>alert('Usuário não encontrado'); window.location.href = '../view/dashboard.php';</script>";
         exit();
     }
 } else {
     // Se não passar o ID, redirecionar
-    echo "<script>alert('ID não fornecido'); window.location.href = '../view/list_users.php';</script>";
+    echo "<script>alert('ID não fornecido'); window.location.href = '../view/dashboard.php';</script>";
     exit();
 }
 
@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updateQuery = "UPDATE usuario SET nomeUsuario = '$nome', emailUsuario = '$email', turmaUsuario = '$turma' WHERE idUsuario = '$id'";
     if (mysqli_query($db, $updateQuery)) {
         // Se a atualização for bem-sucedida, redirecionar para a lista de usuários
-        echo "<script>alert('Usuário atualizado com sucesso'); window.location.href = '../view/list-users.php';</script>";
+        echo "<script>alert('Usuário atualizado com sucesso'); window.location.href = '../view/dashboard.php';</script>";
     } else {
         // Caso ocorra um erro
-        echo "<script>alert('Erro ao atualizar usuário'); window.location.href = '../view/list-users.php';</script>";
+        echo "<script>alert('Erro ao atualizar usuário'); window.location.href = '../view/dashboard.php';</script>";
     }
 }

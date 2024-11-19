@@ -9,13 +9,13 @@ if (isset($_GET['id_usuario']) && !empty($_GET['id_usuario'])) {
     $data = get_data($db, 'usuario', 'idUsuario', $edit_user);
 } else {
     // Se o idUsuario não for passado corretamente, redireciona ou mostra um erro
-    echo "<script>alert('ID de usuário não fornecido'); window.location.href = '../view/list-users.php';</script>";
+    echo "<script>alert('ID de usuário não fornecido'); window.location.href = '../view/dashboard.php';</script>";
     exit();
 }
 
 // Verifica se encontrou algum usuário com o ID fornecido
 if (empty($data)) {
-    echo "<script>alert('Usuário não encontrado'); window.location.href = '../view/list-users.php';</script>";
+    echo "<script>alert('Usuário não encontrado'); window.location.href = '../view/dashboard.php';</script>";
     exit();
 }
 

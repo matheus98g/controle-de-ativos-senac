@@ -13,10 +13,13 @@ $result = mysqli_query($db, $sql) or die('Erro na consulta: ' . mysqli_error($db
 $dados = $result->fetch_assoc();
 
 if ($dados['quantidade'] > 0) {
-    // Se o login for válido, redireciona para a lista de usuários
-    header('Location: ../view/list-users.php');
-    exit(); // Garante que o script não continue após o redirecionamento
+    $_SESSION['login_ok'] = true;
+    $_SESSION['controle_login_ok'] = true;
+    header('location:../view/dashboard.php');
 } else {
+    $_SESSION['login_ok'] = false;
+    $_SESSION['controle_login_ok'] = false;
+    header('location:../view/login.php');
     // Se o login for inválido, exibe um alerta JavaScript
     echo "<script>alert('Usuário ou senha inválidos'); window.location.href='../view/login.php';</script>";
 }
