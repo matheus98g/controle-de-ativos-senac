@@ -4,7 +4,7 @@ include('../model/db.php');
 
 $usuario = $_POST['usuario'];
 $email = $_POST['email'];
-$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+$password = base64_encode($_POST['password']);
 $turma = $_POST['turma'];
 
 

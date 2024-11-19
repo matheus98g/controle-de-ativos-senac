@@ -81,7 +81,7 @@
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="form-container">
             <h2>Login</h2>
-            <form method="POST" action="processar_formulario.php">
+            <form method="POST" action="../controller/loginController.php">
                 <div class="form-group">
                     <label for="email">E-mail:</label>
                     <input type="email" class="form-control input-transparente" id="email" name="email" placeholder="Digite seu e-mail..." required>
