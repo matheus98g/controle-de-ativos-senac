@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../view/list-users.php">Inicio</a>
+                    <a class="nav-link" href="../view/dashboard.php">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../view/add-user.php">Cadastrar</a>

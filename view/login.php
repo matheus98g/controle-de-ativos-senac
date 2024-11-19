@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_GET['erro']) && $_GET['erro'] == 'sem_acesso') {
+    echo "<script>alert('Usuario não autenticado')</script>";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

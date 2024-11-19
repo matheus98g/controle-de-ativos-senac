@@ -14,11 +14,11 @@ $dados = $result->fetch_assoc();
 
 if ($dados['quantidade'] > 0) {
     $_SESSION['login_ok'] = true;
-    $_SESSION['controle_login_ok'] = true;
+    $_SESSION['controle_login'] = true;
     header('location:../view/dashboard.php');
 } else {
     $_SESSION['login_ok'] = false;
-    $_SESSION['controle_login_ok'] = false;
+    unset($_SESSION['controle_login']);
     header('location:../view/login.php');
     // Se o login for inválido, exibe um alerta JavaScript
     echo "<script>alert('Usuário ou senha inválidos'); window.location.href='../view/login.php';</script>";
