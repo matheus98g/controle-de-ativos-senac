@@ -1,4 +1,5 @@
 <?php
+include('../controller/sessionController.php');
 include_once('../model/db.php');
 include_once('../controller/getDataController.php');
 

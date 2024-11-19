@@ -15,7 +15,7 @@ $result = mysqli_query($db, $query) or die(false);
 
 if ($result) {
     echo "<script> alert('Usuario cadastrado com sucesso!');
-    window.location.href = '../view/dashboard.php';
+    window.location.href = '../view/login.php';
     </script>";
 } else {
     echo "<script> alert('Ocorreu um erro, tente novamente.');

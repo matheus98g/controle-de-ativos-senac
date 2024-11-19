@@ -19,7 +19,8 @@ if ($dados['quantidade'] > 0) {
 } else {
     $_SESSION['login_ok'] = false;
     unset($_SESSION['controle_login']);
-    header('location:../view/login.php');
+    header('location:../view/login.php?error_auth=s');
+
     // Se o login for inválido, exibe um alerta JavaScript
-    echo "<script>alert('Usuário ou senha inválidos'); window.location.href='../view/login.php';</script>";
+    // echo "<script>alert('Usuário ou senha inválidos'); window.location.href='../view/login.php';</script>";
 }

@@ -3,6 +3,9 @@ session_start();
 if (isset($_GET['erro']) && $_GET['erro'] == 'sem_acesso') {
     echo "<script>alert('Usuario não autenticado')</script>";
 }
+if (isset($_GET['error_auth']) && $_GET['error_auth'] == 's') {
+    echo "<script>alert('Usuario ou senha invalido'); </script>";
+}
 
 ?>
 <!DOCTYPE html>
@@ -17,21 +20,16 @@ if (isset($_GET['erro']) && $_GET['erro'] == 'sem_acesso') {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-        /* Estilo personalizado para inputs com transparência (ajustado para usar Bootstrap) */
         .input-transparente {
             background-color: rgba(255, 255, 255, 0.5);
-            /* Cor branca com transparência */
         }
 
         .input-transparente:focus {
             background-color: rgba(255, 255, 255, 0.7);
-            /* Aumenta a opacidade ao focar no campo */
         }
 
-        /* Estilo para o fundo */
         body {
             background-image: url('../assets/images/background-login.jpg');
-            /* Verifique o caminho */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -40,10 +38,8 @@ if (isset($_GET['erro']) && $_GET['erro'] == 'sem_acesso') {
             color: white;
         }
 
-        /* Adicionando bordas arredondadas e sombra com Bootstrap */
         .form-container {
             background-color: rgba(0, 0, 0, 0.5);
-            /* Fundo semitransparente para destacar o formulário */
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -72,19 +68,16 @@ if (isset($_GET['erro']) && $_GET['erro'] == 'sem_acesso') {
         if ($usuario_bd && password_verify($senha, $usuario_bd['senha'])) {
             // Login bem-sucedido
             echo "Login bem-sucedido!";
-            // Redirecionar ou armazenar a sessão do usuário
             session_start();
             $_SESSION['usuario_id'] = $usuario_bd['id'];
             header('Location: dashboard.php');
             exit;
         } else {
-            // Login falhou
             echo "Usuário ou senha inválidos!";
         }
     }
     ?>
 
-    <!-- Container do formulário, agora centralizado -->
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="form-container">
             <h2>Login</h2>
@@ -98,11 +91,12 @@ if (isset($_GET['erro']) && $_GET['erro'] == 'sem_acesso') {
                     <input type="password" class="form-control input-transparente" id="password" name="password" placeholder="Digite sua senha..." required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                <div class="text-center mt-3">
+                    <a href="register.php" class="text-light">Criar uma conta</a>
+                </div>
             </form>
         </div>
     </div>
-
-
 </body>
 
 </html>

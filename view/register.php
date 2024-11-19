@@ -2,9 +2,21 @@
 include('../includes/head.php') //scripts e html principal
 ?>
 
+<style>
+    body {
+        background-image: url('../assets/images/background-login.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        height: 100vh;
+        color: white;
+    }
+</style>
+
 <body class="bg-dark text-white">
 
-    <div class="container mt-5">
+    <div class="container mt-5 w-25">
         <h2>Criar um novo Usuario</h2>
         <form onsubmit="return validatePassword()" action="../controller/newUserController.php" method="POST">
             <div class="mb-3">
