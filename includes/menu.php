@@ -12,9 +12,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../view/dashboard.php">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../view/add-user.php">Cadastrar</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Usuários
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="../view/users.php">Listar todos</a></li>
+                        <li><a class="dropdown-item" href="../view/register.php">Registrar</a></li>
+                    </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../view/assets.php">Ativos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../view/movements.php">Movimentações</a>
+                </li>
+
             </ul>
         </div>
     </nav>

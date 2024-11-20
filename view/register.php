@@ -1,7 +1,7 @@
 <?php
 include('../includes/head.php') //scripts e html principal
 ?>
-
+<script src="../js/cadastro.js"></script>
 <style>
     body {
         background-image: url('../assets/images/background-login.jpg');
@@ -17,7 +17,7 @@ include('../includes/head.php') //scripts e html principal
 <body class="bg-dark text-white">
 
     <div class="container mt-5 w-25">
-        <h2>Criar um novo Usuario</h2>
+        <h2 class="text-center">Criar um novo Usuario</h2>
         <form onsubmit="return validatePassword()" action="../controller/newUserController.php" method="POST">
             <div class="mb-3">
                 <label for="usuario" class="form-label">Usuario*</label>
@@ -47,7 +47,13 @@ include('../includes/head.php') //scripts e html principal
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="dashboard.php" class="text-light">Dashboard</a>
+            </div>
         </form>
     </div>
 
