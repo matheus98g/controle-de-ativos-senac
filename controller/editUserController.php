@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updateQuery = "UPDATE usuario SET nomeUsuario = '$nome', emailUsuario = '$email', turmaUsuario = '$turma' WHERE idUsuario = '$id'";
     if (mysqli_query($db, $updateQuery)) {
         // Se a atualização for bem-sucedida, redirecionar para a lista de usuários
-        echo "<script>alert('Usuário atualizado com sucesso'); window.location.href = '../view/dashboard.php';</script>";
+        echo "<script>alert('Usuário atualizado com sucesso'); window.location.href = '../view/users.php';</script>";
     } else {
         // Caso ocorra um erro
-        echo "<script>alert('Erro ao atualizar usuário'); window.location.href = '../view/dashboard.php';</script>";
+        echo "<script>alert('Erro ao atualizar usuário'); window.location.href = '../view/users.php';</script>";
     }
 }
