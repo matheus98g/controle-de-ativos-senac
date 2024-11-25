@@ -1,6 +1,6 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand m-4" href="../view/dashboard.php">
             <img src="../assets/images/senac-logo.svg" width="80" class="d-inline-block align-top" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,5 +30,12 @@
 
             </ul>
         </div>
+        <div id="logout" class="m-4">
+
+            <form method="post" action="logout.php">
+                <button type="submit" name="logout" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+
     </nav>
 </div>

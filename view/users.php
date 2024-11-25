@@ -3,13 +3,14 @@ include('../controller/sessionController.php');
 include('../includes/head.php'); // scripts e html principal
 include_once('../model/db.php');
 include_once('../controller/getDataController.php');
+include_once('../includes/menu.php');
 
 // Obter todos os usuários
 $data = get_data($db, 'usuario');
 ?>
 
 <body>
-    <?php include('../includes/menu.php'); ?>
+
 
     <div class="container mt-4">
         <h2 class="text-center">Lista de Usuários</h2>
