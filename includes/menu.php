@@ -3,11 +3,12 @@
         <a class="navbar-brand m-4" href="../view/dashboard.php">
             <img src="../assets/images/senac-logo.svg" width="80" class="d-inline-block align-top" alt="">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler m-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <div class="collapse navbar-collapse m-4" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="../view/dashboard.php">Inicio</a>
@@ -22,19 +23,18 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../view/assets.php">Ativos</a>
+                    <a class="nav-link" href="../view/ativos.php">Ativos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../view/movements.php">Movimentações</a>
                 </li>
 
             </ul>
-        </div>
-        <div id="logout" class="m-4">
-
-            <form method="post" action="logout.php">
-                <button type="submit" name="logout" class="btn btn-danger">Logout</button>
-            </form>
+            <div id="logout" class="m-4">
+                <form method="post" action="logout.php">
+                    <button type="submit" name="logout" class="btn btn-danger">Logout</button>
+                </form>
+            </div>
         </div>
 
     </nav>

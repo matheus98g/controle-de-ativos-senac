@@ -15,20 +15,20 @@
                         </div>
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">Tipo:</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" id="tipo">
                                 <option value="">Selecione...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="One">One</option>
+                                <option value="Two">Two</option>
+                                <option value="Three">Three</option>
                             </select>
                         </div>
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">Marca:</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" id="marca">
                                 <option value="">Selecione...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="One">One</option>
+                                <option value="Two">Two</option>
+                                <option value="Three">Three</option>
                             </select>
                         </div>
                         <div class="mb-1">
@@ -39,7 +39,8 @@
                             <label for="recipient-name" class="col-form-label">Observação:</label>
                             <input type="text" class="form-control" id="obs">
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer p-2">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                             <button type="reset" class="btn btn-secondary">Limpar</button>
                             <button type="button" class="btn btn-primary" id="cadastrar_ativo">Cadastrar</button>
                         </div>
