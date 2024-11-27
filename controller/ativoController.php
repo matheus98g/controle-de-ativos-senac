@@ -4,24 +4,20 @@
 
 
 include_once('../model/db.php');
+include_once('sessionController.php');
 
 $ativo = $_POST['ativo'];
 $marca = $_POST['marca'];
 $tipo = $_POST['tipo'];
 $quantidade = $_POST['quantidade'];
 $observacao = $_POST['observacao'];
+$userId = $_SESSION['id_user'];
 
-$query = "INSERT INTO ativo (descricaoAtivo, qtdAtivo, obsAtivo, dataCadastro)
-          VALUES ('$ativo', '$quantidade', '$observacao', now())";
+$query = "INSERT INTO ativo (descricaoAtivo, qtdAtivo, obsAtivo, dataCadastro, idUsuario)
+          VALUES ('$ativo', '$quantidade', '$observacao', now(), $userId)";
 
 $result = mysqli_query($db, $query) or die(false);
 
 if ($result) {
-    echo "<script> alert('Ativo cadastrado com sucesso!');
-    window.location.href = '../view/ativos.php';
-    </script>";
-} else {
-    echo "<script> alert('Ocorreu um erro, tente novamente.');
-    window.location.href = '../view/ativos.php';
-    </script>";
+    echo "Cadastro realizado";
 }

@@ -17,7 +17,8 @@ $(document).ready(function(){
             observacao: observacao
         },
         success: function(result){
-            console.log(result);
+            alert(result);
+            location.reload();
       }});
     });
   });

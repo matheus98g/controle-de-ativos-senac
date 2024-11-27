@@ -49,9 +49,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    <?php
-    include('../js/modalAtivos.js');
-    ?>
-</script>
