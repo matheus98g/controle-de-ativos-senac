@@ -1,5 +1,8 @@
 <?php
 
+// controlador para cadastrar ativo
+
+
 include_once('../model/db.php');
 
 $ativo = $_POST['ativo'];

@@ -52,7 +52,7 @@ include('../includes/head.php') //scripts e html principal
             </div>
 
             <div class="text-center mt-3">
-                <a href="dashboard.php" class="text-light">Dashboard</a>
+                <a href="dashboard.php" class="text-light">Voltar à Dashboard</a>
             </div>
         </form>
     </div>

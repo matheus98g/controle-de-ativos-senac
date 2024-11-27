@@ -7,7 +7,7 @@ $(document).ready(function(){
       let observacao = $("#obs").val();
 
       $.ajax({
-        type:'POST',
+        type:"POST",
         url: "../controller/ativoController.php",
         data:{
             ativo: descricao_ativo,
