@@ -27,6 +27,7 @@ $data = get_data($db, 'ativo'); // get data usa um modelo de SELECT
                     <th scope="col">Descrição</th>
                     <th scope="col">Quantidade</th>
                     <th scope="col">Observação</th>
+                    <th scope="col">Cadastrado em</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +39,7 @@ $data = get_data($db, 'ativo'); // get data usa um modelo de SELECT
                         <td><?php echo $ativo['descricaoAtivo']; ?></td>
                         <td><?php echo $ativo['qtdAtivo']; ?></td>
                         <td><?php echo $ativo['obsAtivo']; ?></td>
+                        <td><?php echo $ativo['dataCadastro']; ?></td>
                     </tr>
                 <?php
                 }

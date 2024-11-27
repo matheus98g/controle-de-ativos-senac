@@ -8,7 +8,7 @@
         </button>
 
 
-        <div class="collapse navbar-collapse m-4" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse m-4 justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="../view/dashboard.php">Inicio</a>
