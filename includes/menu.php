@@ -22,8 +22,14 @@
                         <li><a class="dropdown-item" href="../view/register.php">Registrar</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../view/ativos.php">Ativos</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Ativos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="../view/ativos.php">Listar Ativos</a></li>
+                        <li><a class="dropdown-item" href="../view/marcas.php">Marcas</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../view/movements.php">Movimentações</a>
