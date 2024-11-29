@@ -22,3 +22,57 @@ $(document).ready(function(){
       }});
     });
   });
+
+
+  $(document).ready(function () {
+    // Abrir modal para edição
+    $('.editAtivo').on('click', function () {
+        const id = $(this).data('id');
+        const descricao = $(this).data('descricao');
+        const quantidade = $(this).data('quantidade');
+        const observacao = $(this).data('observacao');
+
+        // Preencher os campos do modal
+        $('#idAtivo').val(id);
+        $('#descricaoAtivo').val(descricao);
+        $('#qtdAtivo').val(quantidade);
+        $('#obsAtivo').val(observacao);
+
+        // Alterar o título do modal
+        $('#exampleModalLabel').text('Editar Ativo');
+
+        // Mostrar o modal
+        $('#exampleModal').modal('show');
+    });
+
+    // Resetar o formulário ao fechar o modal
+    $('#exampleModal').on('hidden.bs.modal', function () {
+        $('#formAtivo')[0].reset();
+        $('#idAtivo').val('');
+        $('#exampleModalLabel').text('Cadastrar Ativo');
+    });
+
+    // Submeter o formulário via AJAX
+    $('#formAtivo').on('submit', function (e) {
+        e.preventDefault();
+
+        const formData = $(this).serialize();
+
+        $.ajax({
+            url: '../controller/ativosController.php',
+            type: 'POST',
+            data: formData,
+            success: function (response) {
+                if (response.success) {
+                    alert('Dados salvos com sucesso!');
+                    location.reload(); // Recarregar a página para atualizar a tabela
+                } else {
+                    alert('Erro ao salvar os dados: ' + response.error);
+                }
+            },
+            error: function () {
+                alert('Erro na comunicação com o servidor.');
+            }
+        });
+    });
+});
