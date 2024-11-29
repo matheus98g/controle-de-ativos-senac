@@ -9,8 +9,8 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-1">
-                            <label for="descricao" class="col-form-label">Nome:</label>
-                            <input type="text" class="form-control" id="descricao">
+                            <label for="descricao_marca" class="col-form-label">Nome:</label>
+                            <input type="text" class="form-control" id="descricao_marca">
                         </div>
                         <div class="modal-footer p-2">
                             <button type="reset" class="btn btn-secondary">Limpar</button>

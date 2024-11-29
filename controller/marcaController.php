@@ -6,7 +6,7 @@
 include_once('../model/db.php');
 include_once('sessionController.php');
 
-$marca = $_POST['descricao'];
+$marca = $_POST['marca'];
 $userId = $_SESSION['id_user'];
 
 $query = "INSERT INTO marca (descricaoMarca, statusMarca, idUsuario)

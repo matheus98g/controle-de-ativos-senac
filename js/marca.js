@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("#cadastrar_marca").click(function(){
-      let descricao_marca = $("#descricao").val();
+      let descricao_marca = $("#descricao_marca").val();
 
       $.ajax({
         type:"POST",

@@ -4,6 +4,8 @@ include('../includes/head.php'); //scripts e html principal
 $data = get_data($db, 'marca'); // get data usa um modelo de SELECT
 ?>
 
+<script src="../js/marca.js"></script>
+
 <body>
     <?php
     include('../includes/menu.php')
