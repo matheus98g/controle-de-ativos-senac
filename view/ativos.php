@@ -8,7 +8,7 @@ include_once('../controller/getDataController.php');
 
 $marcas = get_data($db, 'marca');
 $tipos = get_data($db, 'tipo');
-
+// var_dump($marcas);
 $sql = "SELECT 
             idAtivo, 
             descricaoAtivo, 

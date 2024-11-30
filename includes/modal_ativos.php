@@ -13,8 +13,8 @@
                             <input type="text" class="form-control" id="descricao">
                         </div>
                         <div class="mb-1">
-                            <label for="tipo" class="col-form-label">Tipo:</label>
-                            <select class="form-select" id="tipo">
+                            <label for="marca" class="col-form-label">Marca:</label>
+                            <select class="form-select" id="marca">
                                 <option value="">Selecione...</option>
                                 <?php
                                 foreach ($marcas as $marca) {
@@ -24,12 +24,12 @@
                             </select>
                         </div>
                         <div class="mb-1">
-                            <label for="marca" class="col-form-label">Marca:</label>
-                            <select class="form-select" id="marca">
+                            <label for="tipo" class="col-form-label">Tipo:</label>
+                            <select class="form-select" id="tipo">
                                 <option value="">Selecione...</option>
                                 <?php
                                 foreach ($tipos as $tipo) {
-                                    echo '<option value="' . $tipo['idMarca'] . '">' . $tipo['descricaoTipo'] . '</option>';
+                                    echo '<option value="' . $tipo['idTipo'] . '">' . $tipo['descricaoTipo'] . '</option>';
                                 };
                                 ?>
                             </select>

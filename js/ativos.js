@@ -5,7 +5,6 @@ $(document).ready(function(){
       let marca = $("#marca").val();
       let quantidade = $("#quantidade").val();
       let observacao = $("#obs").val();
-
       $.ajax({
         type:"POST",
         url: "../controller/ativoController.php",
@@ -21,10 +20,10 @@ $(document).ready(function(){
             location.reload();
       }});
     });
-  });
 
 
-  $(document).ready(function () {
+
+ 
     // Abrir modal para edição
     $('.editAtivo').on('click', function () {
         const id = $(this).data('id');
@@ -52,14 +51,14 @@ $(document).ready(function(){
         $('#exampleModalLabel').text('Cadastrar Ativo');
     });
 
-    // Submeter o formulário via AJAX
+   // Submeter o formulário via AJAX
     $('#formAtivo').on('submit', function (e) {
         e.preventDefault();
 
         const formData = $(this).serialize();
 
         $.ajax({
-            url: '../controller/ativosController.php',
+            url: '../controller/editAtivoController.php',
             type: 'POST',
             data: formData,
             success: function (response) {
