@@ -4,13 +4,32 @@ include('../includes/head.php'); // Scripts e HTML principal
 include_once('../controller/getDataController.php');
 
 // Obter todos os ativos
-$data = get_data($db, 'ativo'); // Ajuste o nome da tabela para "ativo"
+// $data = get_data($db, 'ativo'); // Ajuste o nome da tabela para "ativo"
+
+$marcas = get_data($db, 'marca');
+$tipos = get_data($db, 'tipo');
+
+$sql = "SELECT 
+            idAtivo, 
+            descricaoAtivo, 
+            qtdAtivo, 
+            statusAtivo, 
+            obsAtivo, 
+            (SELECT descricaoMarca from marca m WHERE m.idMarca = a.idMarca) as marca, 
+            (SELECT descricaoTipo from tipo t WHERE t.idTipo = a.idTipo) as tipo, 
+            dataCadastro, 
+            dataAlteracao, 
+            (SELECT nomeUsuario from usuario u WHERE u.idUsuario = a.idUsuario) as usuario
+            FROM ativo a";
+
+$result = mysqli_query($db, $sql) or die(false);
+$ativos = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Ativos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -34,20 +53,28 @@ $data = get_data($db, 'ativo'); // Ajuste o nome da tabela para "ativo"
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Descrição</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Tipo</th>
                     <th scope="col">Quantidade</th>
                     <th scope="col">Observação</th>
+                    <th scope="col">Cadastrado por</th>
+                    <th scope="col">Data Cadastro</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                foreach ($data as $ativo) {
+                foreach ($ativos as $ativo) {
                 ?>
                     <tr>
                         <td><?php echo $ativo['idAtivo']; ?></td>
                         <td><?php echo $ativo['descricaoAtivo']; ?></td>
+                        <td><?php echo $ativo['marca']; ?></td>
+                        <td><?php echo $ativo['tipo']; ?></td>
                         <td><?php echo $ativo['qtdAtivo']; ?></td>
                         <td><?php echo $ativo['obsAtivo']; ?></td>
+                        <td><?php echo $ativo['usuario']; ?></td>
+                        <td><?php echo $ativo['dataCadastro']; ?></td>
                         <td>
                             <!-- Botão para abrir o modal -->
                             <button

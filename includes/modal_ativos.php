@@ -16,18 +16,22 @@
                             <label for="tipo" class="col-form-label">Tipo:</label>
                             <select class="form-select" id="tipo">
                                 <option value="">Selecione...</option>
-                                <option value="One">One</option>
-                                <option value="Two">Two</option>
-                                <option value="Three">Three</option>
+                                <?php
+                                foreach ($marcas as $marca) {
+                                    echo '<option value="' . $marca['idMarca'] . '">' . $marca['descricaoMarca'] . '</option>';
+                                };
+                                ?>
                             </select>
                         </div>
                         <div class="mb-1">
                             <label for="marca" class="col-form-label">Marca:</label>
                             <select class="form-select" id="marca">
                                 <option value="">Selecione...</option>
-                                <option value="One">One</option>
-                                <option value="Two">Two</option>
-                                <option value="Three">Three</option>
+                                <?php
+                                foreach ($tipos as $tipo) {
+                                    echo '<option value="' . $tipo['idMarca'] . '">' . $tipo['descricaoTipo'] . '</option>';
+                                };
+                                ?>
                             </select>
                         </div>
                         <div class="mb-1">
