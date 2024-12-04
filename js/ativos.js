@@ -63,7 +63,6 @@ $(document).ready(function(){
             data: formData,
             success: function (response) {
                 if (response.success) {
-                    alert('Dados salvos com sucesso!');
                     location.reload(); // Recarregar a página para atualizar a tabela
                 } else {
                     alert('Erro ao salvar os dados: ' + response.error);

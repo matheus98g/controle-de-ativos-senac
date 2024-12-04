@@ -29,12 +29,18 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ativos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="../js/ativos.js"></script>
+    <style>
+        .form-check-input:focus {
+            outline: none;
+            /* Remove o light ring */
+            box-shadow: none;
+            /* Remove o sombreamento adicional */
+        }
+    </style>
 </head>
 
 <body>
@@ -76,18 +82,34 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
                         <td><?php echo $ativo['usuario']; ?></td>
                         <td><?php echo $ativo['dataCadastro']; ?></td>
                         <td>
-                            <!-- Botão para abrir o modal -->
-                            <button
-                                class="btn btn-sm btn-warning"
-                                data-bs-toggle="modal"
-                                data-bs-target="#editAtivoModal"
-                                data-id="<?php echo $ativo['idAtivo']; ?>"
-                                data-descricao="<?php echo htmlspecialchars($ativo['descricaoAtivo']); ?>"
-                                data-quantidade="<?php echo htmlspecialchars($ativo['qtdAtivo']); ?>"
-                                data-observacao="<?php echo htmlspecialchars($ativo['obsAtivo']); ?>">
-                                Editar
-                            </button>
+                            <div id="acoes" class="d-flex justify-content-evenly">
+                                <div id="ativar-inativar-ativo" class="d-flex justify-content-evenly">
+                                    <!-- Corrigido: Switch único para o ativo atual -->
+                                    <div class="form-check form-switch">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="switchStatus-<?php echo $ativo['idAtivo']; ?>"
+                                            data-id="<?php echo $ativo['idAtivo']; ?>"
+                                            <?php echo $ativo['statusAtivo'] ? 'checked' : ''; ?>>
+                                    </div>
+                                </div>
+
+                                <div id="editar-ativo">
+                                    <button
+                                        class="btn btn-sm btn-warning"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#editAtivoModal"
+                                        data-id="<?php echo $ativo['idAtivo']; ?>"
+                                        data-descricao="<?php echo htmlspecialchars($ativo['descricaoAtivo']); ?>"
+                                        data-quantidade="<?php echo htmlspecialchars($ativo['qtdAtivo']); ?>"
+                                        data-observacao="<?php echo htmlspecialchars($ativo['obsAtivo']); ?>">
+                                        Editar
+                                    </button>
+                                </div>
+                            </div>
                         </td>
+
                     </tr>
                 <?php
                 }
@@ -125,6 +147,73 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
             </div>
         </div>
     </div>
+
+    <!-- Modal para confirmação -->
+    <div class="modal fade" id="confirmStatusModal" tabindex="-1" aria-labelledby="confirmStatusModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmStatusModalLabel">Confirmação de Alteração de Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza de que deseja alterar o status deste ativo?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirmStatusChange">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentCheckbox; // Para rastrear o checkbox atual
+
+        // Captura o evento de mudança no checkbox
+        document.querySelectorAll('.form-check-input').forEach((checkbox) => {
+            checkbox.addEventListener('change', function(event) {
+                currentCheckbox = this; // Armazena o checkbox atual
+                // Exibe o modal
+                const confirmModal = new bootstrap.Modal(document.getElementById('confirmStatusModal'));
+                confirmModal.show();
+            });
+        });
+
+        // Confirmação no modal
+        document.getElementById('confirmStatusChange').addEventListener('click', function() {
+            const idAtivo = currentCheckbox.getAttribute('data-id');
+            const newStatus = currentCheckbox.checked ? 1 : 0;
+            console.log(newStatus);
+
+            // Aqui você pode fazer uma requisição AJAX para atualizar o status no servidor
+            $.ajax({
+                url: '../controller/updateStatusController.php',
+                type: 'POST',
+                data: {
+                    idAtivo,
+                    statusAtivo: newStatus
+                },
+                success: function(response) {
+                    // Mensagem de sucesso ou manipulação do DOM se necessário
+                    console.log(response);
+                    location.reload();
+                },
+                error: function(error) {
+                    console.error(error);
+                    // Reverte o status em caso de erro
+                    currentCheckbox.checked = !currentCheckbox.checked;
+                    alert('Erro ao atualizar o status. Tente novamente.');
+                }
+            });
+
+            // Fecha o modal
+            const confirmModal = bootstrap.Modal.getInstance(document.getElementById('confirmStatusModal'));
+            confirmModal.hide();
+        });
+    </script>
+
+
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_bind_param($stmt, 'sisi', $descricao, $qtd, $obs, $id);
         if (mysqli_stmt_execute($stmt)) {
             // Exibe alerta de sucesso e redireciona
-            echo "<script>alert('Ativo atualizado com sucesso!'); window.location.href = '../view/ativos.php';</script>";
+            echo "<script>window.location.href = '../view/ativos.php';</script>";
         } else {
             // Exibe alerta de erro
             echo "<script>alert('Erro ao atualizar o ativo: " . mysqli_error($db) . "'); history.back();</script>";
