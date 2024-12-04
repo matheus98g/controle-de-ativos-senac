@@ -33,6 +33,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/ativos.js"></script>
     <style>
         .form-check-input:focus {
             outline: none;

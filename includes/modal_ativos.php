@@ -45,7 +45,7 @@
                         <div class="modal-footer p-2">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                             <button type="reset" class="btn btn-secondary">Limpar</button>
-                            <button type="button" class="btn btn-primary" id="cadastrar_ativo">Cadastrar</button>
+                            <button type="submit" class="btn btn-primary" id="cadastrar_ativo">Cadastrar</button>
                         </div>
                     </form>
                 </div>
