@@ -65,6 +65,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
                     <th scope="col">Observação</th>
                     <th scope="col">Cadastrado por</th>
                     <th scope="col">Data Cadastro</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
@@ -82,18 +83,21 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
                         <td><?php echo $ativo['usuario']; ?></td>
                         <td><?php echo $ativo['dataCadastro']; ?></td>
                         <td>
-                            <div id="acoes" class="d-flex justify-content-evenly">
-                                <div id="ativar-inativar-ativo" class="d-flex justify-content-evenly">
-                                    <!-- Corrigido: Switch único para o ativo atual -->
-                                    <div class="form-check form-switch">
-                                        <input
-                                            class="form-check-input"
-                                            type="checkbox"
-                                            id="switchStatus-<?php echo $ativo['idAtivo']; ?>"
-                                            data-id="<?php echo $ativo['idAtivo']; ?>"
-                                            <?php echo $ativo['statusAtivo'] ? 'checked' : ''; ?>>
-                                    </div>
+                            <div id="ativar-inativar-ativo" class="d-flex justify-content-evenly">
+                                <!-- Corrigido: Switch único para o ativo atual -->
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="switchStatus-<?php echo $ativo['idAtivo']; ?>"
+                                        data-id="<?php echo $ativo['idAtivo']; ?>"
+                                        <?php echo $ativo['statusAtivo'] ? 'checked' : ''; ?>>
                                 </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="acoes" class="d-flex justify-content-evenly">
+
 
                                 <div id="editar-ativo">
                                     <button
@@ -160,7 +164,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
                     Tem certeza de que deseja alterar o status deste ativo?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="modal-conf-status-cancelar">Cancelar</button>
                     <button type="button" class="btn btn-primary" id="confirmStatusChange">Confirmar</button>
                 </div>
             </div>
@@ -210,6 +214,9 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
             // Fecha o modal
             const confirmModal = bootstrap.Modal.getInstance(document.getElementById('confirmStatusModal'));
             confirmModal.hide();
+        });
+        document.getElementById('modal-conf-status-cancelar').addEventListener('click', function() {
+            location.reload();
         });
     </script>
 
