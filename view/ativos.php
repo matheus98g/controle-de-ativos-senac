@@ -82,10 +82,15 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
                         <td><?php echo $ativo['qtdAtivo']; ?></td>
                         <td><?php echo $ativo['obsAtivo']; ?></td>
                         <td><?php echo $ativo['usuario']; ?></td>
-                        <td><?php echo $ativo['dataCadastro']; ?></td>
+                        <td>
+                            <?php
+                            $dataCadastro = new DateTime($ativo['dataCadastro']);
+                            echo $dataCadastro->format('d/m/Y H:i:s');
+                            ?>
+                        </td>
+
                         <td>
                             <div id="ativar-inativar-ativo" class="d-flex justify-content-evenly">
-                                <!-- Corrigido: Switch único para o ativo atual -->
                                 <div class="form-check form-switch">
                                     <input
                                         class="form-check-input"
@@ -98,8 +103,6 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
                         </td>
                         <td>
                             <div id="acoes" class="d-flex justify-content-evenly">
-
-
                                 <div id="editar-ativo">
                                     <button
                                         class="btn btn-sm btn-warning"
@@ -114,7 +117,6 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
                                 </div>
                             </div>
                         </td>
-
                     </tr>
                 <?php
                 }

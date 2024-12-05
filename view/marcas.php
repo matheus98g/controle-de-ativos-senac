@@ -12,7 +12,8 @@ $data = get_data($db, 'marca'); // get data usa um modelo de SELECT
     ?>
 
     <div class="container p-4">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#marcaModal" data-bs-whatever="@mdo">Cadastrar marca</button>
+        <h2 class="text-center">Lista de Marcas</h2>
+        <button type="button" class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#marcaModal" data-bs-whatever="@mdo">Cadastrar marca</button>
 
         <?php
         include_once('../includes/modal_marcas.php');

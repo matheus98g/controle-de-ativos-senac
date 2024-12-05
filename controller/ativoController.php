@@ -18,8 +18,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             VALUES ('$ativo', '$quantidade', '$observacao', $marca, $tipo, now(), $userId)";
 
     $result = mysqli_query($db, $query) or die(false);
-
-    if ($result) {
-        echo "Cadastro realizado";
-    }
 }
